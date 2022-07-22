@@ -1,5 +1,7 @@
 <?php
 
+require 'functions.php';
+
 $greeting = "Hello world";
 
 $person = [
@@ -9,5 +11,7 @@ $person = [
 ];
 
 $person['name'] = 'Jeff';
+
+dumper($person);
 
 require 'index.view.php';
