@@ -18,9 +18,12 @@
     <div class="container">
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">
-                    <?= $greeting ?>
-                </h1>
+                <h1><?= $greeting ?></h1>
+                <ul>
+                    <?php foreach ($person as $feature => $val) : ?>
+                        <li><strong><?= $feature ?>:</strong> <?= $val ?></li>
+                    <?php endforeach ?>
+                </ul>
 
             </div>
         </div>
