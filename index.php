@@ -2,16 +2,22 @@
 
 require 'functions.php';
 
+require 'Task.php';
+
+$pdo = connectToDb();
+
+$tasks = getAllTaskt($pdo);
+
 $greeting = "Hello world";
 
-$person = [
-    'age' => 31,
-    'hair' => 'brown',
-    'career' => 'web developer'
-];
+// $tasks = [
+//     new Task('Go to the store'),
+//     new Task('Go to the gym'),
+//     new Task('Clean my room')
+// ];
 
-$person['name'] = 'Jeff';
+// $tasks[0]->complete();
 
-dumper($person);
+// dumper($tasks);
 
 require 'index.view.php';
