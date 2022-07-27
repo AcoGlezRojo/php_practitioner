@@ -1,13 +1,8 @@
 <?php
 
-$query = require 'bootstrap.php';
-require 'functions.php';
-require 'Task.php';
+//load config and functions
+$query = require 'app/bootstrap.php';
+require 'app/functions.php';
 
-$greeting = "Hello world";
-
-$tasks = $query->selectAll('todos', 'Task');
-
-// dumper($tasks);
-
-require 'index.view.php';
+//load controller from routes
+require Router::load()->direct(Request::uri());

@@ -15,6 +15,16 @@
 
 <body>
 
+    <header>
+        <div class="container">
+            <nav>
+                <li>
+                    <a href="/about.php">About Page</a>
+                </li>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
