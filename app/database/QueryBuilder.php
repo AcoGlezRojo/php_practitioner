@@ -14,6 +14,28 @@ class QueryBuilder
     {
         $statement = $this->pdo->prepare("select * from {$table}");
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_CLASS, $class);
+        if (!is_null($class)) {
+            return $statement->fetchAll(PDO::FETCH_CLASS, $class);
+        }
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function insert($table, $parameters)
+    {
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ',  array_keys($parameters)),
+            ':' . implode(', :',  array_keys($parameters))
+        );
+
+        // die(var_dump($sql));
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($parameters);
+        } catch (Exception $e) {
+            die('Whoops, something went wrong');
+        }
     }
 }
