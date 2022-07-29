@@ -1,9 +1,9 @@
 <?php
 
-$app = [];
+App::bind('config', $config = require 'config/app.php');
 
-$app['config'] = require('config/app.php');
+// die(var_dump(App::get('config')));
 
-$app['database'] = new QueryBuilder(
-    Connection::make($app['config']['database'])
-);
+App::bind('database', new QueryBuilder(
+    Connection::make($config['database'])
+));
