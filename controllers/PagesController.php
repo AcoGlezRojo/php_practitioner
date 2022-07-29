@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use App\Classes\App;
+
 class Post
 {
     public $title;

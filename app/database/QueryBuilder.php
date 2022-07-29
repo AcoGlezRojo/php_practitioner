@@ -15,7 +15,7 @@ class QueryBuilder
         $statement = $this->pdo->prepare("select * from {$table}");
         $statement->execute();
         if (!is_null($class)) {
-            return $statement->fetchAll(PDO::FETCH_CLASS, $class);
+            return $statement->fetchAll(PDO::FETCH_CLASS, 'Models\\' . $class);
         }
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

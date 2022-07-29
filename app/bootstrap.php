@@ -1,5 +1,7 @@
 <?php
 
+use App\Classes\App;
+
 App::bind('config', $config = require 'config/app.php');
 
 // die(var_dump(App::get('config')));
